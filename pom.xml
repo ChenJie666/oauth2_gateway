@@ -13,6 +13,8 @@
         <module>register-server</module>
         <module>order-server</module>
         <module>gateway-server</module>
+        <module>order-server</module>
+        <module>gateway-server</module>
     </modules>
 
     <properties>

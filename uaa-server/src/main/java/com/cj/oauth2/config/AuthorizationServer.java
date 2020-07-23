@@ -63,12 +63,12 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * 第二部分：令牌访问端点配置
+     * 第二部分：令牌访问端点配置(令牌的配置、认证，客户端配置，授权码配置)
      */
-    //获得JWT令牌的配置(指定秘钥)
+    //获得Token的配置(以JWT作为令牌并指定秘钥)
     @Resource
     private TokenStore tokenStore;
-    //获得Token的配置(以JWT作为令牌并指定秘钥)
+    //获得JWT令牌的配置(指定秘钥)
     @Resource
     private JwtAccessTokenConverter jwtAccessTokenConverter;
     //获得认证管理器，用于对token进行校验

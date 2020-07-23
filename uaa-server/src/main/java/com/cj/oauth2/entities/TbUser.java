@@ -1,8 +1,12 @@
 package com.cj.oauth2.entities;
 
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
 import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Description:
@@ -10,10 +14,14 @@ import java.util.Date;
  * @Data: 2020/7/23 14:47
  */
 @Entity
+@Data
+@Accessors(chain = true)
+@TableName(value = "tb_user")
 public class TbUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @TableId(type = IdType.ID_WORKER_STR)
     private Long id;
     @Column(unique = true,nullable = false)
     private String username;
@@ -31,9 +39,14 @@ public class TbUser {
     private Boolean enabled;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
+    @TableField(fill = FieldFill.INSERT)
     private Date created;
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updated;
+    @Transient
+    @TableField(exist = false)
+    private List<String> roles;
 
 }

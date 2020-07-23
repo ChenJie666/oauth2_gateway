@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 /**
  * @Description:
  * @Author: CJ
- * @Data: 2020/7/23 17:06
+ * @Data: 2020/7/24 0:12
  */
 @Configuration
 public class TokenConfig {
@@ -17,7 +17,7 @@ public class TokenConfig {
     private static final String SIGNING_KEY = "uaa123";
 
     /**
-     * 设置JWT作为令牌
+     * 配置JWT为令牌
      *
      * @return
      */
@@ -27,14 +27,14 @@ public class TokenConfig {
     }
 
     /**
-     * JWT令牌配置
+     * 配置JWT的秘钥
      *
      * @return
      */
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter jwtAccessTokenConverter = new JwtAccessTokenConverter();
-        jwtAccessTokenConverter.setSigningKey(SIGNING_KEY); //对jwt进行token加密
+        jwtAccessTokenConverter.setSigningKey(SIGNING_KEY);
         return jwtAccessTokenConverter;
     }
 

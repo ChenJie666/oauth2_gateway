@@ -20,6 +20,7 @@ public class TbPermission {
     private String name;
     @Column(nullable = false)
     private String enname;
+    @Column(unique = true)
     private String url;
     private String description;
     @Temporal(value = TemporalType.TIMESTAMP)
