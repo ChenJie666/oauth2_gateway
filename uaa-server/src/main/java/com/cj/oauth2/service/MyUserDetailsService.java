@@ -34,8 +34,8 @@ public class MyUserDetailsService implements UserDetailsService {
         TbUser user = myUserDetailsMapper.findUserByUsername(username);
         List<TbRole> roles = myUserDetailsMapper.findRoleByUsername(username);
 
-        ArrayList<String> roleNames = Lists.newArrayList();
-        ArrayList<String> roleEnnames = Lists.newArrayList();
+        final ArrayList<String> roleNames = Lists.newArrayList();
+        final ArrayList<String> roleEnnames = Lists.newArrayList();
         roles.forEach(role -> {
             roleNames.add(role.getName());
             roleEnnames.add(role.getEnname());
